@@ -1,0 +1,118 @@
+CREATE DATABASE IF NOT EXISTS projet
+CREATE TABLE chainehotel(
+    chainehotel_id VARCHAR(250),
+	nom VARCHAR(250),
+	adresse_bureau VARCHAR(250),
+	courriel VARCHAR (250),
+	phone VARCHAR (250),
+	nbr_hotel NUMERIC,
+	PRIMARY KEY(chainehotel_id)	
+);
+CREATE TABLE commodite(
+	commodite_id VARCHAR(250),
+	nom VARCHAR(250),
+	equipement VARCHAR(250),
+	prix INTEGER ,
+	PRIMARY KEY (commodite_id)
+);
+CREATE TABLE caracteristique (
+	caracteristique_id VARCHAR(250),
+	vue VARCHAR(250),
+	extensibilite VARCHAR(250),
+	dommage VARCHAR(250),
+	PRIMARY KEY (caracteristique_id )
+);
+CREATE TABLE hotel(
+	hotel_id VARCHAR(250),
+	chainehotel_id VARCHAR(250),
+	nbr_chambre NUMERIC,
+	adresse VARCHAR(250),
+	phone VARCHAR (250),
+	courriel VARCHAR (250),
+	classement INTEGER,
+	PRIMARY KEY (hotel_id)
+	
+);
+
+alter table hotel add foreign key references chainehotel (chainehotel_id);
+
+CREATE TABLE chambre (
+	chambre_id VARCHAR(250),
+	prix INTEGER ,
+	nom VARCHAR(250),
+    equipement VARCHAR(250),
+	capacite INTEGER,
+	hotel_id VARCHAR(250),
+	PRIMARY KEY (chambre_id)
+);
+alter table chambre add foreign key (hotel_id) references  hotel (hotel_id);
+ CREATE TABLE client (
+	client_id VARCHAR(250),
+	nom VARCHAR(250),
+	chambre_id VARCHAR(250),
+	adresse VARCHAR(250),
+	nas INTEGER,
+	date_item VARCHAR(250),
+	phone VARCHAR(250),
+	date_de_naissance VARCHAR(250),
+	PRIMARY KEY(client_id)
+	
+);
+alter table client add foreign key chambre_id refernces chambre(chambre_id);
+
+CREATE TABLE location (
+	location_id VARCHAR(250),
+	client_id VARCHAR(250),
+        chambre_id VARCHAR(250),
+	reservation_id VARCHAR(250),
+	prix INTEGER,
+	PRIMARY KEY(location_id)
+	
+);
+alter table location add foreign key (client_id) refernces client (client_id);
+alter table location add foreign key (chambre_id) refernces chambre(chambre_id);
+
+CREATE TABLE reservation (
+	reservation_id VARCHAR(250),
+	client_id VARCHAR(250),
+	chambre_id VARCHAR(250),
+	PRIMARY KEY(reservation_id)
+);
+alter table reservation add foreign key (client_id) refernces client (client_id);
+alter table reservation add foreign key  (chambre_id) REFERENCES  chambre(chambre_id);
+CREATE TABLE archives (
+	archive_id VARCHAR(250),
+	reservation_id VARCHAR(250),
+	date VARCHAR(250),
+	PRIMARY KEY(archive_id)
+);
+alter table archives add foreign key  (reservation_id) REFERENCES reservation(reservation_id);
+CREATE TABLE employe (
+	employe_id VARCHAR(250),
+	nom VARCHAR(250),
+	adresse VARCHAR(250),
+	nas INTEGER,
+	salaire INTEGER,
+	poste VARCHAR(250),
+	hotel_id VARCHAR(250),
+	PRIMARY KEY(employe_id)
+);
+alter table employe add foreign key  (hotel_id) REFERENCES hotel (hotel_id);
+
+INSERT INTO  chainehotel  (chainehotel_id ,nom ,adresse_bureau ,courriel ,phone ,nbr_hotel ) VALUES
+(1, 'x', '650 rue x, ottawa', 'xxx@x.com', '22222222',8),
+(2, 'y', '750 rue y, montreal', 'yyy@y.com', '33333',4),
+(3, 'z', '788 rue z, quebec', 'zzz@z.com', '55555',5),
+(4, 'a', '265 rue a, paris', 'aaa@a.com', '8888',4),
+(5, 'b', '2169 rue b, chypre', 'bbb@.com', '23333',6);
+INSERT INTO hotel (hotel_id ,chainehotel_id ,nbr_chambre,adresse ,phone ,classement ) VALUES
+(1,1,5,'x',1111111,5),
+(1,1,5,'x',1111111,5),
+(1,1,5,'x',1111111,5),
+(1,1,5,'x',1111111,5),
+(1,1,5,'x',1111111,5),
+(1,1,5,'x',1111111,5),
+
+
+
+
