@@ -1,0 +1,138 @@
+CREATE TABLE IF NOT EXISTS chainehotel(
+	chainehotel_id INT NOT NULL AUTO_INCREMENT,
+	nom VARCHAR(250),
+	adresse_bureau VARCHAR(250),
+    couriel VARCHAR(250),
+    phone VARCHAR(250),
+    nbr_hotel INT,
+	PRIMARY KEY(chainehotel_id)
+);
+CREATE TABLE IF NOT EXISTS comodite(
+	commodite_id INT NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(250),
+    equipement VARCHAR(250),
+    prix INTEGER,
+    PRIMARY KEY(commodite_id)
+);
+CREATE TABLE IF NOT EXISTS caracteristique(
+	caracteristique_id INT NOT NULL AUTO_INCREMENT,
+    vue VARCHAR(250),
+    extensibilite VARCHAR(250),
+    dommage VARCHAR(250),
+    PRIMARY KEY(caracteristique_id)
+);
+CREATE TABLE IF NOT EXISTS hotel(
+    hotel_id INT NOT NULL AUTO_INCREMENT,
+    chainehotel_id INT NOT NULL,
+    nbr_chambre INT,
+    adresse VARCHAR(250),
+    phone VARCHAR(250),
+    courriel VARCHAR(250),
+    classement INT,
+    PRIMARY KEY(hotel_id),
+    constraint fk_chaine
+    foreign key(chainehotel_id) 
+    	references chainehotel(chainehotel_id)
+);
+CREATE TABLE IF NOT EXISTS hotel_cap(
+	hotelcap_id INT NOT NULL AUTO_INCREMENT,
+	hotel_id INT NOT NULL,
+    capacity INT,
+	PRIMARY KEY (hotelcap_id),
+	constraint fk_cap
+	foreign key (hotel_id)
+		references hotel(hotel_id)
+);
+CREATE TABLE IF NOT EXISTS chambre(
+	chambre_id INT NOT NULL AUTO_INCREMENT,
+    prix DECIMAL,
+    nom  VARCHAR(250),
+    equipement VARCHAR(250),
+    capacite INT,
+    hotel_id INT NOT NULL,
+    PRIMARY KEY(chambre_id),
+    constraint fk_hotel
+    foreign key (hotel_id)
+    	references hotel(hotel_id)
+);
+CREATE TABLE IF NOT EXISTS client(
+	client_id INT NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(250),
+    prenom VARCHAR(250),
+    sexe VARCHAR(250),
+    email VARCHAR(250),
+    chambre_id VARCHAR(250),
+    adresse VARCHAR(250),
+    nas INTEGER,
+    date_item DATE,
+    phone VARCHAR(250),
+    date_de_naissance VARCHAR(250),
+    PRIMARY KEY(client_id)
+);
+CREATE TABLE IF NOT EXISTS reservation(
+	reservation_id INT NOT NULL AUTO_INCREMENT,
+    client_id INT NULL,
+    chambre_id INT NOT NULL,
+    hotel_id
+    PRIMARY KEY(reservation_id),
+    constraint fk_resclient
+    foreign key (client_id)
+    	references client(client_id),
+    constraint fk_hot
+    foreign key(hotel_id)
+    	references hotel(hotel_id)
+);
+CREATE TABLE IF NOT EXISTS location (
+	location_id INT NOT NULL AUTO_INCREMENT,
+    client_id INT NOT NULL,
+    chambre_id INT NOT NULL,
+    reservation_id INT NOT NULL,
+    prix DECIMAL,
+    PRIMARY KEY(location_id),
+    constraint fk_locclient
+    foreign key (client_id)
+    	references client(client_id),
+    constraint fk_locchamb
+    foreign key (chambre_id)
+    	references chambre(chambre_id),
+    constraint fk_locres
+    foreign key (reservation_id)
+    	references reservation(reservation_id)
+);
+CREATE TABLE IF NOT EXISTS archives(
+    archive_id INT NOT NULL AUTO_INCREMENT,
+    reservation_id INT NOT NULL,
+    res_date DATE,
+    status VARCHAR(250),
+    PRIMARY KEY(archive_id),
+    constraint fk_resarch
+    foreign key (reservation_id)
+    	references reservation(reservation_id)
+);
+
+DELIMITER //
+create trigger archive_keeping
+after insert on reservation
+for each ROW
+begin
+	INSERT INTO archives
+   (reservation_id,
+    res_date
+   )
+   VALUES
+   ( NEW.reservation_id,
+     SYSDATE()
+   );
+end//
+DELIMITER ;
+
+DELIMITER //
+create trigger cap_keeping
+after insert on reservation
+for each ROW
+begin
+	update hotel_cap
+    set capacity = capacity -1
+    where hotel_id = new.hotel_id
+end//
+DELIMITER ;
