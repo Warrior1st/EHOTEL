@@ -106,9 +106,9 @@ header .logo a span{
 .find_room{
     background-color: #222;
     padding: 20px;
-    width: 70%;
-    position: absolute;
-   bottom: -50px;
+    width: 100%;
+    position: relative;
+   bottom: -10px;
 }
 .find_room form{
 display: flex;
@@ -154,7 +154,7 @@ width: 100%;
 }
 .title{
     text-transform:capitalize;
-    margin: 70px 0;
+    margin: 15px;
     font-weight: bold;
     color: #29d9d5;
     position: relative;
@@ -170,16 +170,16 @@ width: 100%;
     width: 5px;
 }
 .img-desc{
-    display: flex;
+    /*display: flex;*/
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 .img-desc .left{
 position: relative;
-margin-left: 10px;
-height: 250px;
-width: 40%;
+/*margin-left: 10px;
+height: 250px;*/
+width: 100;
 }
 .img-desc .right{
     width: 57%;

@@ -1,6 +1,5 @@
-CREATE DATABASE IF NOT EXISTS projet
 CREATE TABLE chainehotel(
-    chainehotel_id VARCHAR(250),
+    chainehotel_id int
 	nom VARCHAR(250),
 	adresse_bureau VARCHAR(250),
 	courriel VARCHAR (250),
@@ -36,6 +35,12 @@ CREATE TABLE hotel(
 
 alter table hotel add foreign key references chainehotel (chainehotel_id);
 
+/*alter table hotel
+add constraint fk_chaineH
+foreign key(chainehotel_id) 
+references chainehotel(chainehotel_id);
+*/
+
 CREATE TABLE chambre (
 	chambre_id VARCHAR(250),
 	prix INTEGER ,
@@ -46,6 +51,14 @@ CREATE TABLE chambre (
 	PRIMARY KEY (chambre_id)
 );
 alter table chambre add foreign key (hotel_id) references  hotel (hotel_id);
+
+/*
+alter table chambre
+add constraint fk_hotel
+foreign key(hotel_id) 
+references hotel(hotel_id);
+*/
+
  CREATE TABLE client (
 	client_id VARCHAR(250),
 	nom VARCHAR(250),
@@ -60,6 +73,12 @@ alter table chambre add foreign key (hotel_id) references  hotel (hotel_id);
 );
 alter table client add foreign key chambre_id refernces chambre(chambre_id);
 
+/*alter table client
+add constraint fk_client
+foreign key(chambre_id) 
+references chambre(chambre_id);
+*/
+
 CREATE TABLE location (
 	location_id VARCHAR(250),
 	client_id VARCHAR(250),
@@ -70,6 +89,14 @@ CREATE TABLE location (
 	
 );
 alter table location add foreign key (client_id) refernces client (client_id);
+
+/*
+alter table location
+add constraint fk_client
+foreign key(client_id) 
+references client(client_id);
+*/
+
 alter table location add foreign key (chambre_id) refernces chambre(chambre_id);
 
 CREATE TABLE reservation (

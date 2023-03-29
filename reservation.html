@@ -10,13 +10,13 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index1.html"><span> E</span>hotel</a>
+            <a href="index.html"><span> E</span>hotel</a>
         </div>
         <ul class="menu">
-            <li> <a href="#"> Accueil</a></li>
-            <li> <a href="#a-propos"> à propos</a></li>
-            <li> <a href="#popular-reservation"> reservation</a></li>
-            <li> <a href="#contact"> contact</a></li>
+            <li> <a href="index.html"> Accueil</a></li>
+            <li> <a href="#Reserver"> Reservation</a></li>
+            <li> <a href="inscription.html">S'inscrire</a></li>
+            <li> <a href="#contact"> A propos</a></li>
 
         </ul>
         <a href="#" class="btn-reservation"> Réserver Maintenant</a>
@@ -28,37 +28,32 @@
         <p>pour un sejour agreable.</p>
         <p> vous satisfaire est notre devoir.</p>
         <a href="#" class="btn-reservation"> Réserver Maintenant</a>
-        <div class="find_room">
-            <form action="">
-                <div>
-                    <label>hotel</label>
-                    <input type="text" placeholder="entrez un hotel">
-                </div>
-                <div>
-                    <label>emplacement</label>
-                    <input type="text"placeholder="entrez un emplacement">
-                </div>
-                <div>
-                    <label>caracteristique</label>
-                    <input type="text" placeholder="entrez une caracteristique" >
-                </div>
-                <input type="submit" value="voir">
-            </form>
-        </div>
+        
     </section>
     <!--A propos section-->
-    <section id="a-propos">
-        <h1 class="title"> à propos</h1>
+    <section id="Reserver">
+        <h1 class="title"> Reserver</h1>
         <div class="img-desc">
-            <div class="left">
-                <video src="images/video.mov" autoplay loop></video>
-                
+            <div class="center">
+                <div class="find_room">
+                    <form action="reservation.php" method="post">
+                        <div>
+                            <label>hotel</label>
+                            <input type="text" name="hotel" placeholder="entrez un hotel">
+                        </div>
+                        <div>
+                            <label>emplacement</label>
+                            <input type="text" name="adresse" placeholder="entrez un emplacement">
+                        </div>
+                        <div>
+                            <label>caracteristique</label>
+                            <input type="text" name="caracteristique" placeholder="entrez une caracteristique" >
+                        </div>
+                            <input type="submit" value="voir">
+                    </form>
+                </div>
             </div>
-            <div class="right">
-                <h3>votre presence est la plus precieuse.</h3>
-                <p>nos hoteliers aussi ont des qualités incroyables</p>
-                <a href="#"> Lire Plus</a>
-            </div>
+            
         </div>
     
     </section>
