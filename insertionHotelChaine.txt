@@ -1,0 +1,39 @@
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("L'auberge", '34 Amherst Dr, Kitchener', 'aubergine@gmail.com', 3458902034, 5);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Repos", '25 Rue Gedeon', 'repos@gmail.com', 3154913250, 2);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Nouveau Monde", '13 Rue Jean Jaures', 'nouveau.monde@gmail.com', 3189347425, 3);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Plage du Sud", '1 Boulevard des Dunes', 'plagedusud@hotmail.com', 3356978412, 5);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Escale Bleue", '7 Rue des Navigateurs', 'escalebleue@gmail.com', 3275896321, 1);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Auberge du Soleil", '19 Rue de la Liberte', 'aubergedusoleil@hotmail.com', 3325647896, 4);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Chateau de Charme", '6 Rue du Parc', 'chateaudecharme@gmail.com', 3458723614, 2);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Le Refuge", '23 Rue des Alouettes', 'lerefuge@yahoo.com', 3215487632, 1);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("La Belle Epoque", '10 Rue des Roses', 'labelleepoque@gmail.com', 3332457812, 3);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Oasis Resort", '4 Rue des Palmiers', 'oasisresort@hotmail.com', 3154896321, 5);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Belle Vue", '17 Rue du Mont', 'bellevue@yahoo.com', 3378964521, 2);
+INSERT INTO chainehotel(nom, adresse_bureau, couriel, phone, nbr_hotel) VALUES ("Royal Palace", '8 Boulevard des Princes', 'royalpalace@gmail.com', 3487526931, 4);
+
+
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (3, 150, '10 Rue de la Paix, Marseille', 3365749102, 'hotelmarseille@gmail.com', 3,'Le Provencal');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (6, 75, '35 Rue de la Republique, Toulouse', 3356104872, 'hoteltoulouse@hotmail.com', 2,'Le Bergerac');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (9, 120, '50 Boulevard des Pyrenees, Pau', 3354885741, 'hotelpau@yahoo.com', 3,'Le Majestic');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (4, 200, '27 Rue de la Gare, Lyon', 3378956321, 'hotellyon@gmail.com', 4,'Le Lyonnais');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (7, 90, '12 Rue des Tilleuls, Nice', 3345896321, 'hotelnice@gmail.com', 2,'Le Niçois');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (10, 100, '15 Rue du Stade, Perpignan', 3365748932, 'hotelperpignan@hotmail.com', 3,'Le Catalan');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (1, 180, '5 Rue de la Victoire, Paris', 3365896321, 'hoteldeparis@gmail.com', 5,'Le Parisien');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (8, 80, '22 Rue des Fleurs, Cannes', 3378946215, 'hotelcannes@yahoo.com', 2,'Le Cannois');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (11, 150, '3 Avenue des Roses, Montpellier', 3368741235, 'hotelmontpellier@hotmail.com', 3,'Le Montpelliérain');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (2, 250, '20 Rue du Bac, Paris', 3378964521, 'hoteldeluxe@gmail.com', 5,'Le Luxe');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (5, 300, '55 Rue de la Republique, Lyon', 3345896321, 'hotellyon2@gmail.com', 4,'Le Lyonnais 2');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (3, 110, '20 Rue du Vieux Port, Marseille', 3354879562, 'hotelvieuxport@yahoo.com', 2,'Le Marseillais');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (6, 85, '10 Rue de la Daurade, Toulouse', 3365741235, 'hoteltoulouse2@gmail.com', 3,'Le Toulousain');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (9, 140, '25 Avenue des Thermes, Bagnères-de-Bigorre', 3354841256, 'hotelbagnères@hotmail.com', 4,'Le Bigourdan');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (4, 180, '8 Rue des Roses, Lyon', 3378964523, 'hotellyon3@gmail.com', 5,'Le Lyonnais 3');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (7, 110, '15 Rue des Palmiers, Nice', 3365874125, 'hotelnice2@yahoo.com', 3,'Le Niçois 2');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (10, 95, '5 Avenue du Castillet, Perpignan', 3354884521, 'hotelperpignan2@gmail.com', 2,'Le Catalan 2');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (1, 200, '30 Rue de la Paix, Paris', 3365874123, 'hoteldeparis2@hotmail.com', 4,'Le Parisien 2');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (8, 95, '17 Rue des Bougainvilliers, Cannes', 3378956324, 'hotelcannes2@gmail.com', 3,'Le Cannois 2');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (11, 120, '12 Avenue des Oliviers, Montpellier', 3365749125, 'hotelmontpellier2@yahoo.com', 4,'Le Montpelliérain 2');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (2, 300, '25 Rue du Faubourg Saint-Honoré, Paris', 3378956325, 'hoteldeluxe2@gmail.com', 5,'Le Luxe 2');
+INSERT INTO hotel (chainehotel_id, nbr_chambre, adresse, phone, courriel, classement, nom) VALUES (5, 220, '47 Rue Seguin, Paris', 2104040678, 'resteaparis@gmail.com', 4,'Reste');
+
+
+
