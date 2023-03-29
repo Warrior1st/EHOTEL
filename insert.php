@@ -9,10 +9,10 @@ if(isset($_GET["nom"]) && isset($_GET["prenom"]) && isset($_GET["phone"])  && is
 
     $req= mysqli_query($link,"insert into client(nom,prenom, phone,email,sexe) values ('$nom','$prenom','$phone','$mail','$sexe')");
     if($req){
-        echo"insertion effectuée";
+        echo" insertion effectuée ";
     }
     else{
-        echo"erreur d'insertion";
+        echo" erreur d'insertion ";
     }
 }
 ?>
