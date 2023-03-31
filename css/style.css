@@ -336,3 +336,18 @@ iframe{
 #contact button:hover{
     letter-spacing: 1px;
 }
+table {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+  
+th {
+    background-color: #ccc;
+}
+  
+td, th {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}

@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    // Redirect user to login page
+    header("Location: connexion.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +16,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ehotel</title>
     <link rel ="stylesheet" href="css/style.css">
+    <style>
+        table {
+            width: fit-content;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            font-size: 16px;
+            text-align: center; /* added to center the table */
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center; /* modified to center the text in cells */
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -75,10 +106,18 @@
                     session_start();
                     if(isset($_SESSION['hotels'])) {
                         $hotels = $_SESSION['hotels'];
+                        echo "<table style='margin-top: 20px;'>";
+                        echo "<thead><tr><th>Classement</th><th>Name</th><th>Phone</th></tr></thead>";
+                        echo "<tbody>";
                         foreach($hotels as $hotel) {
-                            echo "<p>Name: " . $hotel['name'] . "</p>";
-                            echo "<p>Phone: " . $hotel['phone'] . "</p>";
+                            echo "<tr>";
+                            echo "<td>" .$hotel['rank'] . "</td>";
+                            echo "<td>" . $hotel['name'] . "</td>";
+                            echo "<td>" . $hotel['phone'] . "<button type='button'>Reserver</button></td>";
+                            echo "</tr>";
                         }
+                        echo "</tbody>";
+                        echo "</table>";
                         unset($_SESSION['hotels']);
                     }
                     ?>
